@@ -14,13 +14,9 @@ public class CreateForm {
     @Pattern(regexp = "^(19[2-9][0-9]|20[0-2][0-9])-(0[1-9]|1[0-2])-(0[1-9]|1\\d|2\\d|3[0-1])$")
     private String birthday;
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
     public String getBirthday() { return birthday; }
 
