@@ -47,12 +47,11 @@ public class UsersController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CreateForm form) {
+    public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CreateForm form, UriComponentsBuilder uriBuilder) {
         String name = form.getName();
         String birthday = form.getBirthday();
         Map<String,String> message = Map.of("name", name, "birthday,", birthday);
-        URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
-                .path("/" + name + "/" + birthday)
+        URI url = uriBuilder.path("/id" + "/" + name + "/" + birthday)
                 .build()
                 .toUri();
         return ResponseEntity.created(url).body(message);
