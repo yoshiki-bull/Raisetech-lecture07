@@ -61,7 +61,8 @@ public class UsersController {
     public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody @Validated UpdateForm form) {
         String name = form.getName();
         String birthday =form.getBirthday();
-        return ResponseEntity.ok(Map.of("name successfully updated", name, "birthday successfully updated", birthday));
+        return ResponseEntity.ok(Map.of("message", "successfully updated", "name successfully updated", name,
+                                        "birthday successfully updated", birthday));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
