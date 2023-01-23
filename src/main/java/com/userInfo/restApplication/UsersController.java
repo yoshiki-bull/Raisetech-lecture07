@@ -34,18 +34,6 @@ public class UsersController {
         return ResponseEntity.ok(Map.of("names", names, "birthday", birthdays));
     }
 
-    @RequestMapping(value = "/usernames", method = RequestMethod.GET)
-    public ResponseEntity<Map<String, String>> getNames(@RequestParam(value = "name", defaultValue = "username")
-                                                            @Validated @Length(max = 20) String name) {
-        return ResponseEntity.ok(Map.of("username", name));
-    }
-
-    @RequestMapping(value = "/birthdays", method = RequestMethod.GET)
-    public ResponseEntity<Map<String, String>> getBirthdays(@RequestParam(value = "name", defaultValue = "username")
-                                                                @Validated @Pattern(regexp = birthdayPa) String birthday) {
-        return ResponseEntity.ok(Map.of("birthday", birthday));
-    }
-
     @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CreateForm form, UriComponentsBuilder uriBuilder) {
         String name = form.getName();
